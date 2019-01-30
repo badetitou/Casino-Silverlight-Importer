@@ -1,9 +1,11 @@
 "
-sourceModel := (PPXmlParser parse: 'D:\Developpement\xaml\GestionEtablissement_ActiviteUserControl.xaml' asFileReference contents).
+sourceModel := XMLDOMParser parseFileNamed: 'D:\Developpement\xaml\GestionEtablissement_ActiviteUserControl.xaml'.
 silverlightModel := MooseModel new.
 CSNSilverlightImporter new sourceModel: sourceModel; createModelIn: silverlightModel.
 silverlightModel name: 'silverlight'.
 silverlightModel.
+
+BLGlobalView new openViewForModel: silverlightModel
 "
 Class {
 	#name : #ManifestCSNSilverlight,
