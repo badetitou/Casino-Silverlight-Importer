@@ -1,6 +1,6 @@
 Class {
 	#name : #CSNSilverlightImporter,
-	#superclass : #BLWebModel,
+	#superclass : #CSNWebModel,
 	#instVars : [
 		'visitor'
 	],

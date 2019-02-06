@@ -1,13 +1,13 @@
 Class {
 	#name : #CSNSilverlightFactory,
-	#superclass : #BLWidgetFactory,
+	#superclass : #CSNWidgetFactory,
 	#category : #'Casino-Silverlight-Importer'
 }
 
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createAttributeFromNode: anElement [
 	^ self model
-		silentlyAdd: (BLAttribute new name: anElement name)
+		silentlyAdd: (CSNAttribute new name: anElement name)
 ]
 
 { #category : #'as yet unclassified' }
@@ -17,7 +17,7 @@ CSNSilverlightFactory >> createAttributesFor: widget from: anElement [
 			self model
 				silentlyAdd:
 					
-							(BLAttribute new
+							(CSNAttribute new
 								name: attribute name;
 								attributeValue: attribute value;
 								widget: widget;
@@ -26,12 +26,12 @@ CSNSilverlightFactory >> createAttributesFor: widget from: anElement [
 
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createPageFrom: aDocumentXML [
-	^ self model silentlyAdd: (BLPage new name: (aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value; yourself)
+	^ self model silentlyAdd: (CSNPage new name: (aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value; yourself)
 ]
 
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createWidgetFrom: anElement [
 	^ self model
 		silentlyAdd:
-			(BLWidget silverCreateWidgetFrom: anElement)
+			(CSNWidget silverCreateWidgetFrom: anElement)
 ]

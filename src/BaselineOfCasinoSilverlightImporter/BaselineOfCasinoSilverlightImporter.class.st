@@ -20,7 +20,7 @@ BaselineOfCasinoSilverlightImporter >> defineDependencies: spec [
 		baseline: 'BLToolkit'
 		with: [ spec
 				loads: 'core-extented';
-				repository: 'github://badetitou/BL-Toolkit:master/src' ].
+				repository: 'github://badetitou/Casino:master/src' ].
 	spec
 		package: 'PetitXml'
 		with:
@@ -38,5 +38,5 @@ BaselineOfCasinoSilverlightImporter >> definePackages: spec [
 		repository: 'https://github.com/badetitou/Casino-Silverlight-Importer';
 		package: 'BaselineOfCasinoSilverlightImporter';
 		package: 'Casino-Silverlight-Importer'
-			with: [ spec requires: #('BLToolkit' 'PetitXml') ]
+			with: [ spec requires: #('Casino' 'PetitXml') ]
 ]
