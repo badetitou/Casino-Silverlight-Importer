@@ -5,7 +5,7 @@ CSNSilverlightImporter new sourceModel: sourceModel; createModelIn: silverlightM
 silverlightModel name: 'silverlight'.
 silverlightModel.
 
-BLGlobalView new openViewForModel: silverlightModel
+CSNGlobalView new openViewForModel: silverlightModel
 "
 Class {
 	#name : #ManifestCSNSilverlight,
