@@ -17,14 +17,10 @@ BaselineOfCasinoSilverlightImporter >> baseline: spec [
 { #category : #baselines }
 BaselineOfCasinoSilverlightImporter >> defineDependencies: spec [
 	spec
-		baseline: 'BLToolkit'
+		baseline: 'Casino'
 		with: [ spec
 				loads: 'core-extented';
-				repository: 'github://badetitou/Casino:master/src' ].
-	spec
-		package: 'PetitXml'
-		with:
-			[ spec repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ]
+				repository: 'github://badetitou/Casino:master/src' ]
 ]
 
 { #category : #baselines }
@@ -38,5 +34,5 @@ BaselineOfCasinoSilverlightImporter >> definePackages: spec [
 		repository: 'https://github.com/badetitou/Casino-Silverlight-Importer';
 		package: 'BaselineOfCasinoSilverlightImporter';
 		package: 'Casino-Silverlight-Importer'
-			with: [ spec requires: #('Casino' 'PetitXml') ]
+			with: [ spec requires: #('Casino') ]
 ]
