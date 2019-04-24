@@ -53,6 +53,7 @@ CSNXMLSilverlightVisitor >> visitElement: anElement [
 			widget := self factory createWidgetFrom: anElement.
 			self parentWidget addWidget: widget.
 			self factory createAttributesFor: widget from: anElement.
+			widget checkAttributes.
 			self parentWidget: widget.
 			^ self clone visitNodeWithElements: anElement ]
 		ifFalse:

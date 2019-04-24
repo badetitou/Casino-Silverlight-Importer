@@ -7,7 +7,7 @@ Class {
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createAttributeFor: aWidget from: anElement [
 	^  self model
-				silentlyAdd: (CSNAttribute silverCreateWidgetFor: aWidget from: anElement)
+				silentlyAdd: (CSNAttribute silverCreateAttributeFor: aWidget from: anElement)
 ]
 
 { #category : #'as yet unclassified' }
@@ -15,7 +15,7 @@ CSNSilverlightFactory >> createAttributesFor: widget from: anElement [
 	anElement
 		attributeNodesDo: [ :attribute | 
 			self model
-				silentlyAdd: (CSNAttribute silverCreateWidgetFor: widget from: attribute) ]
+				silentlyAdd: (CSNAttribute silverCreateAttributeFor: widget from: attribute) ]
 ]
 
 { #category : #'as yet unclassified' }

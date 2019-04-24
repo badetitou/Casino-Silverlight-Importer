@@ -1,6 +1,11 @@
 Extension { #name : #CSNWidget }
 
 { #category : #'*Casino-Silverlight-Importer' }
+CSNWidget >> checkAttributes [
+	""
+]
+
+{ #category : #'*Casino-Silverlight-Importer' }
 CSNWidget class >> silverCanHandle: anElement [
 	^ false
 ]
