@@ -20,7 +20,7 @@ CSNSilverlightFactory >> createAttributesFor: widget from: anElement [
 
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createPageFrom: aDocumentXML [
-	^ self model silentlyAdd: (CSNPage new name: (aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value; yourself)
+	^ self model silentlyAdd: (CSNPage new name: ((aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value substrings: '.') last ; yourself)
 ]
 
 { #category : #'as yet unclassified' }
