@@ -59,6 +59,6 @@ CSNXMLSilverlightVisitor >> visitElement: anElement [
 			[ "If a leaf have children nodes. They probably are attributes represented by a node
 			ex: a tooltip for a button  "
 			self parentWidget
-				addAttribute: (self factory createAttributeFromNode: anElement).
+				addAttribute: (self factory createAttributeFor: widget from: anElement).
 			^ nil ]
 ]
