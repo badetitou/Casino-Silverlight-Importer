@@ -25,7 +25,9 @@ BaselineOfCasinoSilverlightImporter >> defineDependencies: spec [
 
 { #category : #baselines }
 BaselineOfCasinoSilverlightImporter >> defineGroups: spec [
-	spec group: 'default' with: #('Casino-Silverlight-Importer' 'Casino-Model-Silverlight-Generator')
+	spec
+		group: 'default'
+		with: #('Casino-Silverlight-Importer')
 ]
 
 { #category : #baselines }
@@ -34,7 +36,5 @@ BaselineOfCasinoSilverlightImporter >> definePackages: spec [
 		repository: 'https://github.com/badetitou/Casino-Silverlight-Importer';
 		package: 'BaselineOfCasinoSilverlightImporter';
 		package: 'Casino-Silverlight-Importer'
-			with: [ spec requires: #('Casino' 'Casino-Model-Silverlight') ];
-		package: 'Casino-Model-Silverlight' with: [ spec requires: #('Casino') ];
-		package: 'Casino-Model-Silverlight-Generator'
+			with: [ spec requires: #('Casino') ]
 ]

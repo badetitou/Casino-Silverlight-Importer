@@ -40,6 +40,11 @@ CSNXMLSilverlightVisitor >> parentWidget: aWidget [
 ]
 
 { #category : #visiting }
+CSNXMLSilverlightVisitor >> shouldImportElement: anElement [
+	^ anElement name ~= 'UserControl.Resources'
+]
+
+{ #category : #visiting }
 CSNXMLSilverlightVisitor >> visitDocument: aDocument [
 	self parentWidget: (self factory createPageFrom: aDocument).
 	^  (aDocument nodes flatCollect: #nodes) do: [:aNode | aNode acceptNodeVisitor: self ]
@@ -48,6 +53,8 @@ CSNXMLSilverlightVisitor >> visitDocument: aDocument [
 { #category : #visiting }
 CSNXMLSilverlightVisitor >> visitElement: anElement [
 	| widget |
+	(self shouldImportElement: anElement)
+		ifFalse: [ ^ self ].
 	self parentWidget isContainer
 		ifTrue: [ "A leaf cannot add a widget"
 			widget := self factory createWidgetFrom: anElement.
