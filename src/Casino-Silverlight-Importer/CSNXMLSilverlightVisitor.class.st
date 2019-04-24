@@ -61,8 +61,7 @@ CSNXMLSilverlightVisitor >> visitElement: anElement [
 			self parentWidget addWidget: widget.
 			self factory createAttributesFor: widget from: anElement.
 			widget checkAttributes.
-			self parentWidget: widget.
-			^ self clone visitNodeWithElements: anElement ]
+			^ self clone parentWidget: widget; visitNodeWithElements: anElement ]
 		ifFalse:
 			[ "If a leaf have children nodes. They probably are attributes represented by a node
 			ex: a tooltip for a button  "
