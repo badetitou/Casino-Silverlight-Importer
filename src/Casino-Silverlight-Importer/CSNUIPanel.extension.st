@@ -9,13 +9,15 @@ ifNone: [ self addAttribute: (CSNUIClass new attributeValue: 'fit'; name: 'Horiz
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUIPanel class >> silverCanHandle: anElement [
-	^ anElement name endsWith: 'Panel'
+	^ (anElement name endsWith: 'Panel') or: ['toolkit:DataField' = anElement name ]
 ]
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUIPanel class >> silverNewInstanceFor: anElement [
 	| widget |
 	widget := super silverNewInstanceFor: anElement.
+	'toolkit:DataField' = anElement name
+		ifTrue: [ widget addWidget: CSNUIParagraph new ].
 	widget
 		addAttribute:
 			(CSNUIClass new
