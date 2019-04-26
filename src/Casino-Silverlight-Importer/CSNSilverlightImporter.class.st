@@ -17,3 +17,10 @@ CSNSilverlightImporter >> import [
 	visitor := CSNXMLSilverlightVisitor new importer: self; factory: self factory; yourself.
 	sourceModel acceptNodeVisitor: visitor 
 ]
+
+{ #category : #api }
+CSNSilverlightImporter >> preImport [
+	super preImport.
+	visitor := CSNXMLNormalizerSilverlightVisitor new.
+	sourceModel acceptNodeVisitor: visitor
+]

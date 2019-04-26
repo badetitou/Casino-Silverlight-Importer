@@ -42,6 +42,7 @@ CSNXMLSilverlightVisitor >> parentWidget: aWidget [
 { #category : #visiting }
 CSNXMLSilverlightVisitor >> shouldImportElement: anElement [
 	^ anElement name ~= 'UserControl.Resources'
+		and: [ (anElement name endsWith: 'Template') not ]
 ]
 
 { #category : #visiting }
@@ -68,4 +69,12 @@ CSNXMLSilverlightVisitor >> visitElement: anElement [
 			self parentWidget
 				addAttribute: (self factory createAttributeFor: widget from: anElement).
 			^ nil ]
+]
+
+{ #category : #visiting }
+CSNXMLSilverlightVisitor >> visitNodeWithElements: aNodeWithElements [
+	(aNodeWithElements hasChildren and: [ self parentWidget isContainer ])
+		ifTrue:
+			[ aNodeWithElements nodesDo: [ :each | each acceptNodeVisitor: self ] ].
+	^ aNodeWithElements
 ]
