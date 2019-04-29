@@ -9,7 +9,9 @@ ifNone: [ self addAttribute: (CSNUIClass new attributeValue: 'fit'; name: 'Horiz
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUIPanel class >> silverCanHandle: anElement [
-	^ (anElement name endsWith: 'Panel') or: ['toolkit:DataField' = anElement name ]
+		
+	^ #('Panel' 'DataField')
+		anySatisfy: [ :each | anElement name endsWith: each ]
 ]
 
 { #category : #'*Casino-Silverlight-Importer' }

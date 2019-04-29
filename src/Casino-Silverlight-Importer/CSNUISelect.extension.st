@@ -2,5 +2,6 @@ Extension { #name : #CSNUISelect }
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUISelect class >> silverCanHandle: anElement [
-	^ #('bl:ComboBoxIntellisenseCustomControl' 'bl:SelectionBoxCustomControl') includes: anElement name
+		
+	^ #('ComboBoxIntellisenseCustomControl' 'SelectionBoxCustomControl') anySatisfy: [ :each | anElement name endsWith: each ].
 ]
