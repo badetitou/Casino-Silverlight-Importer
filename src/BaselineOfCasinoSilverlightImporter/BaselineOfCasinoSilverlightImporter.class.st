@@ -35,5 +35,5 @@ BaselineOfCasinoSilverlightImporter >> definePackages: spec [
 		repository: 'https://github.com/badetitou/Casino-Silverlight-Importer';
 		package: 'BaselineOfCasinoSilverlightImporter';
 		package: 'Casino-Silverlight-Importer'
-			with: [ spec requires: #('Casino') ]
+			with: [ spec requires: #('CasinoModelSilverlight') ]
 ]
