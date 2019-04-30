@@ -17,10 +17,9 @@ BaselineOfCasinoSilverlightImporter >> baseline: spec [
 { #category : #baselines }
 BaselineOfCasinoSilverlightImporter >> defineDependencies: spec [
 	spec
-		baseline: 'Casino'
+		baseline: 'CasinoModelSilverlight'
 		with: [ spec
-				loads: 'core-extented';
-				repository: 'github://badetitou/Casino:master/src' ]
+				repository: 'github://badetitou/Casino-Model-Silverlight:master/src' ]
 ]
 
 { #category : #baselines }
