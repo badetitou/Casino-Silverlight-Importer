@@ -24,7 +24,9 @@ BaselineOfCasinoSilverlightImporter >> defineDependencies: spec [
 
 { #category : #baselines }
 BaselineOfCasinoSilverlightImporter >> defineGroups: spec [
-	spec group: 'default' with: #('Casino-Silverlight-Importer')
+	spec
+		group: 'default'
+		with: #('Casino-Silverlight-Importer')
 ]
 
 { #category : #baselines }

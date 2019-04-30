@@ -40,6 +40,12 @@ CSNXMLSilverlightVisitor >> parentWidget: aWidget [
 ]
 
 { #category : #visiting }
+CSNXMLSilverlightVisitor >> shouldImportElement: anElement [
+	^ anElement name ~= 'UserControl.Resources'
+		and: [ (anElement name endsWith: 'Template') not ]
+]
+
+{ #category : #visiting }
 CSNXMLSilverlightVisitor >> visitDocument: aDocument [
 	self parentWidget: (self factory createPageFrom: aDocument).
 	^  (aDocument nodes flatCollect: #nodes) do: [:aNode | aNode acceptNodeVisitor: self ]
@@ -48,17 +54,27 @@ CSNXMLSilverlightVisitor >> visitDocument: aDocument [
 { #category : #visiting }
 CSNXMLSilverlightVisitor >> visitElement: anElement [
 	| widget |
+	(self shouldImportElement: anElement)
+		ifFalse: [ ^ self ].
 	self parentWidget isContainer
 		ifTrue: [ "A leaf cannot add a widget"
 			widget := self factory createWidgetFrom: anElement.
 			self parentWidget addWidget: widget.
 			self factory createAttributesFor: widget from: anElement.
-			self parentWidget: widget.
-			^ self clone visitNodeWithElements: anElement ]
+			widget checkAttributes.
+			^ self clone parentWidget: widget; visitNodeWithElements: anElement ]
 		ifFalse:
 			[ "If a leaf have children nodes. They probably are attributes represented by a node
 			ex: a tooltip for a button  "
 			self parentWidget
-				addAttribute: (self factory createAttributeFromNode: anElement).
+				addAttribute: (self factory createAttributeFor: widget from: anElement).
 			^ nil ]
+]
+
+{ #category : #visiting }
+CSNXMLSilverlightVisitor >> visitNodeWithElements: aNodeWithElements [
+	(aNodeWithElements hasChildren and: [ self parentWidget isContainer ])
+		ifTrue:
+			[ aNodeWithElements nodesDo: [ :each | each acceptNodeVisitor: self ] ].
+	^ aNodeWithElements
 ]

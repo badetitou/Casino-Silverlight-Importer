@@ -5,9 +5,9 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-CSNSilverlightFactory >> createAttributeFromNode: anElement [
-	^ self model
-		silentlyAdd: (CSNAttribute new name: anElement name)
+CSNSilverlightFactory >> createAttributeFor: aWidget from: anElement [
+	^  self model
+				silentlyAdd: (CSNAttribute silverCreateAttributeFor: aWidget from: anElement)
 ]
 
 { #category : #'as yet unclassified' }
@@ -15,18 +15,12 @@ CSNSilverlightFactory >> createAttributesFor: widget from: anElement [
 	anElement
 		attributeNodesDo: [ :attribute | 
 			self model
-				silentlyAdd:
-					
-							(CSNAttribute new
-								name: attribute name;
-								attributeValue: attribute value;
-								widget: widget;
-								yourself) ]
+				silentlyAdd: (CSNAttribute silverCreateAttributeFor: widget from: attribute) ]
 ]
 
 { #category : #'as yet unclassified' }
 CSNSilverlightFactory >> createPageFrom: aDocumentXML [
-	^ self model silentlyAdd: (CSNPage new name: (aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value; yourself)
+	^ self model silentlyAdd: (CSNPage new name: ((aDocumentXML nodes anyOne attributeNodeAt: 'x:Class') value substrings: '.') last ; yourself)
 ]
 
 { #category : #'as yet unclassified' }
