@@ -2,7 +2,7 @@ Extension { #name : #CSNUIBorder }
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUIBorder class >> silverCanHandle: anElement [
-	^ anElement name = 'Border'
+	^ false "anElement name = 'Border'"
 ]
 
 { #category : #'*Casino-Silverlight-Importer' }

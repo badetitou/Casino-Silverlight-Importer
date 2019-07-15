@@ -42,7 +42,7 @@ CSNXMLSilverlightVisitor >> parentWidget: aWidget [
 { #category : #visiting }
 CSNXMLSilverlightVisitor >> shouldImportElement: anElement [
 	^ anElement name ~= 'UserControl.Resources'
-		and: [ (anElement name endsWith: 'Template') not ]
+	"	and: [ (anElement name endsWith: 'Template') not ]"
 ]
 
 { #category : #visiting }

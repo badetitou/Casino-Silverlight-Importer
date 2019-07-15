@@ -2,7 +2,7 @@ Extension { #name : #CSNUILabel }
 
 { #category : #'*Casino-Silverlight-Importer' }
 CSNUILabel class >> silverCanHandle: anElement for: aWidget [
-	^ #('Title' 'Label') includes: anElement name
+	^ #('Title' 'Label' 'Content') includes: anElement name
 ]
 
 { #category : #'*Casino-Silverlight-Importer' }
